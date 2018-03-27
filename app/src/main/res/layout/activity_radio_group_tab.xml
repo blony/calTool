@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <FrameLayout
+        android:id="@+id/fragment_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:alpha="0.6"
+        android:background="@android:color/darker_gray"/>
+
+
+    <RadioGroup
+        android:id="@+id/tab_radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@android:color/white"
+
+        >
+        <RadioButton
+            android:id="@+id/tab_home_button"
+            android:layout_width="0dp"
+            android:checked="true"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/cal_selector"
+            android:text="@string/tab_chang"
+            android:textColor="@color/color_selector"
+            style="@style/RadioGroupButtonStyle"
+            />
+        <RadioButton
+            android:id="@+id/tab_news_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/cal_selector"
+            android:text="@string/tab_ti"
+            android:textColor="@color/color_selector"
+            style="@style/RadioGroupButtonStyle"/>
+        <RadioButton
+            android:id="@+id/tab_me_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/cal_selector"
+            android:text="@string/tab_u"
+            android:textColor="@color/color_selector"
+
+            style="@style/RadioGroupButtonStyle"/>
+
+    </RadioGroup>
+
+</LinearLayout>

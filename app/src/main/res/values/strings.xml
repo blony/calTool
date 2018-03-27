@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">渠道流量计算工具</string>
+
+    <string name="tab_chang">矩形河道</string>
+    <string name="tab_ti">梯形河道</string>
+    <string name="tab_u">U型河道</string>
+
+</resources>
