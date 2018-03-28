@@ -1,41 +1,38 @@
 package com.example.koncaui.androidtabbar;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity {
 
-    private Button goTabbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initViews();
+
         //去除标题栏
         if (getSupportActionBar() != null){
             getSupportActionBar().hide();
         }
 
+        Timer timer = new Timer();
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                Intent intent1 = new Intent(MainActivity.this,RadioGroupTabActivity.class);
+                startActivity(intent1);
+                MainActivity.this.finish();
+            }
+        };
+        timer.schedule(timerTask,1000*2);
+
     }
 
-    private void initViews() {
-        goTabbar = findViewById(R.id.go_tabbar);
-        goTabbar.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.go_tabbar:
-                ActivityUitl.startRadioGroupTabActivity(this);
-                break;
-            default:
-                break;
-        }
-    }
 }
