@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.koncaui.androidtabbar.R;
 
+import static com.example.koncaui.androidtabbar.CalculateUtils.*;
 
 
 public class HomeFragment extends Fragment {
@@ -35,13 +36,88 @@ public class HomeFragment extends Fragment {
         m3 = (EditText) getActivity().findViewById(R.id.r_et_m3);
         btn_cal = (Button) getActivity().findViewById(R.id.r_btn_cal);
         result = (TextView) getActivity().findViewById(R.id.r_result);
-        
 
-
-
-
+        initView();
         return inflater.inflate(R.layout.fragment_home,container,false);
     }
 
 
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+    }
+    public void initView(){
+        btn_cal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //点击后的操作
+
+                //获取控件里的值
+                String sl1 = l1.getText().toString().trim();
+                String sl2 = l2.getText().toString().trim();
+                String sl3 = l3.getText().toString().trim();
+                String sh = h.getText().toString().trim();
+                String sv1 = v1.getText().toString().trim();
+                String sv2 = v2.getText().toString().trim();
+                String sv3 = v3.getText().toString().trim();
+                String sm1 = m1.getText().toString().trim();
+                String sm2 = m2.getText().toString().trim();
+                String sm3 = m3.getText().toString().trim();
+
+                //转换成double类型
+                double dl1 = Double.parseDouble(sl1);
+                double dl2 = Double.parseDouble(sl2);
+                double dl3 = Double.parseDouble(sl3);
+                double dh = Double.parseDouble(sh);
+                double dv1 = Double.parseDouble(sv1);
+                double dv2 = Double.parseDouble(sv2);
+                double dv3 = Double.parseDouble(sv3);
+                double dm1 = Double.parseDouble(sm1);
+                double dm2 = Double.parseDouble(sm2);
+                double dm3 = Double.parseDouble(sm3);
+
+                double q,q1,q2,q3;
+                q1 = mul(mul(dl1,dh),mul(dv1,dm1));
+                q2 = mul(mul(dl2,dh),mul(dv2,dm2));
+                q3 = mul(mul(dl3,dh),mul(dv3,dm3));
+                //计算结果
+                q =add(add(q1,q2),q3);
+
+                result.setText(Double.toString(q));
+
+
+            }
+        });
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
