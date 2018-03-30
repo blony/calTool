@@ -14,6 +14,9 @@ import com.example.koncaui.androidtabbar.R;
 
 import static com.example.koncaui.androidtabbar.CalculateUtils.*;
 
+/**
+ * Created by jue on 28/03/2018.
+ */
 
 public class HomeFragment extends Fragment {
     private EditText l1,l2,l3,h,v1,v2,v3,m1,m2,m3;
@@ -24,27 +27,29 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        l1 = (EditText) getActivity().findViewById(R.id.r_et_l1);
-        l2 = (EditText) getActivity().findViewById(R.id.r_et_l2);
-        l3 = (EditText) getActivity().findViewById(R.id.r_et_l3);
-        h = (EditText) getActivity().findViewById(R.id.r_et_h);
-        v1 = (EditText) getActivity().findViewById(R.id.r_et_v1);
-        v2 = (EditText) getActivity().findViewById(R.id.r_et_v2);
-        v3 = (EditText) getActivity().findViewById(R.id.r_et_v3);
-        m1 = (EditText) getActivity().findViewById(R.id.r_et_m1);
-        m2 = (EditText) getActivity().findViewById(R.id.r_et_m2);
-        m3 = (EditText) getActivity().findViewById(R.id.r_et_m3);
-        btn_cal = (Button) getActivity().findViewById(R.id.r_btn_cal);
-        result = (TextView) getActivity().findViewById(R.id.r_result);
+        View view = inflater.inflate(R.layout.fragment_home,container,false);
+        l1 = (EditText) view.findViewById(R.id.r_et_l1);
+        l2 = (EditText) view.findViewById(R.id.r_et_l2);
+        l3 = (EditText) view.findViewById(R.id.r_et_l3);
+        h = (EditText) view.findViewById(R.id.r_et_h);
+        v1 = (EditText) view.findViewById(R.id.r_et_v1);
+        v2 = (EditText) view.findViewById(R.id.r_et_v2);
+        v3 = (EditText) view.findViewById(R.id.r_et_v3);
+        m1 = (EditText) view.findViewById(R.id.r_et_m1);
+        m2 = (EditText) view.findViewById(R.id.r_et_m2);
+        m3 = (EditText) view.findViewById(R.id.r_et_m3);
+        btn_cal = (Button) view.findViewById(R.id.r_btn_cal);
+        result = (TextView) view.findViewById(R.id.r_result);
 
         initView();
-        return inflater.inflate(R.layout.fragment_home,container,false);
+        return view;
     }
 
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
     }
     public void initView(){
@@ -84,7 +89,7 @@ public class HomeFragment extends Fragment {
                 //计算结果
                 q =add(add(q1,q2),q3);
 
-                result.setText(Double.toString(q));
+                result.setText(Double.toString(round(q,3))+"m³/s");
 
 
             }

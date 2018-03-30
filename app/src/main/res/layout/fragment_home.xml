@@ -12,8 +12,8 @@
         android:gravity="center">
 
         <ImageView
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
             android:src="@drawable/rectangle" />
 
@@ -41,7 +41,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="长度1"
+                        android:text="长度L1"
                         android:textSize="10sp"/>
 
                     <EditText
@@ -60,7 +60,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="长度2"
+                        android:text="长度L2"
                         android:textSize="10sp"/>
 
                     <EditText
@@ -79,7 +79,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="长度3"
+                        android:text="长度L3"
                         android:textSize="10sp"/>
 
                     <EditText
@@ -109,7 +109,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="深度"
+                        android:text="深度H"
                         android:textSize="10sp"/>
                     <EditText
                         android:id="@+id/r_et_h"
@@ -140,7 +140,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="流速1"
+                        android:text="流速v1"
                         android:textSize="10sp"/>
 
                     <EditText
@@ -159,7 +159,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="流速2"
+                        android:text="流速v2"
                         android:textSize="10sp"/>
 
                     <EditText
@@ -178,7 +178,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="流速3"
+                        android:text="流速v3"
                         android:textSize="10sp"/>
 
                     <EditText
@@ -205,7 +205,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="系数1"
+                        android:text="系数m1"
                         android:textSize="10sp"/>
 
                     <EditText
@@ -224,7 +224,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="系数2"
+                        android:text="系数m2"
                         android:textSize="10sp"/>
 
                     <EditText
@@ -243,7 +243,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="系数3"
+                        android:text="系数m3"
                         android:textSize="10sp"/>
 
                     <EditText
@@ -271,30 +271,27 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="当前河道流量："/>
+                android:text="计算结果为："/>
             <TextView
                 android:id="@+id/r_result"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:textColor="#ff0000"
-                android:text="30"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="立方米/秒"/>
+                />
+
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="20dp"
-            android:text="查看历史计算数据"
-            android:textSize="16sp"
-            android:textColor="#0000ff"
-            />
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="right"-->
+            <!--android:layout_marginRight="15dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:text="查看历史计算数据"-->
+            <!--android:textSize="16sp"-->
+            <!--android:textColor="#0000ff"-->
+            <!--/>-->
     </LinearLayout>
 
 
