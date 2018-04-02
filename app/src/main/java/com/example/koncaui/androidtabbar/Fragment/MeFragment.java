@@ -27,7 +27,7 @@ public class MeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_news,container,false);
+        View view = inflater.inflate(R.layout.fragment_me,container,false);
 
         l1 = (EditText) view.findViewById(R.id.u_et_l1);
         l2 = (EditText) view.findViewById(R.id.u_et_l2);
@@ -91,16 +91,27 @@ public class MeFragment extends Fragment {
                 double dh0 = Double.parseDouble(sh0);
 
                 double q,qt,q1,q2,q3,q0,r0,s0;
-                q1 = mul(mul(dl1,dh1),mul(dv1,dm1));
-                q2 = mul(mul(dl2,dh1),mul(dv2,dm2));
-                q3 = mul(mul(dl3,dh1),mul(dv3,dm3));
-                //计算结果
-                qt =add(add(q1,q2),q3);
 
+
+                //u型部分计算结果
                 r0 = add(div(Math.pow(dl0,2),mul(8,dh0),3),div(dh0,2,3));
+                s0 = sub(div(mul(mul(Math.PI,mul(r0,r0)),Math.asin(div(dl0,add(r0,r0),3))),180,3),div(mul(dl0,sub(r0,dh0)),2,3));
+                q0 = mul(s0,dv2);
 
+                if (sh1.isEmpty()){
+                    result.setText(Double.toString(round(q0,3))+"m³/s");
+                } else {
 
-                result.setText(Double.toString(round(qt,3))+"m³/s");
+                    //梯型部分计算结果
+                    q1 = mul(mul(dl1,dh1),mul(dv1,dm1));
+                    q2 = mul(mul(dl2,dh1),mul(dv2,dm2));
+                    q3 = mul(mul(dl3,dh1),mul(dv3,dm3));
+                    qt =add(add(q1,q2),q3);
+
+                    q = add(q0,qt);
+                    result.setText(Double.toString(round(q,3))+"m³/s");
+                }
+
 
 
             }
