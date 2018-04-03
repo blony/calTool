@@ -56,6 +56,12 @@ public class MeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
+    //判断EditText是否为空值
+    public String judgeUitl(String string){
+        String result = "".equals(string)?"0.000":string;
+        return result;
+    }
+
     public void initView(){
         btn_cal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,22 +82,28 @@ public class MeFragment extends Fragment {
                 String sl0 = l0.getText().toString().trim();
                 String sh0 = h0.getText().toString().trim();
                 //转换成double类型
-                double dl1 = Double.parseDouble(sl1);
-                double dl2 = Double.parseDouble(sl2);
-                double dl3 = Double.parseDouble(sl3);
-                double dh1 = Double.parseDouble(sh1);
-                double dv1 = Double.parseDouble(sv1);
-                double dv2 = Double.parseDouble(sv2);
-                double dv3 = Double.parseDouble(sv3);
-                double dm1 = Double.parseDouble(sm1);
-                double dm2 = Double.parseDouble(sm2);
-                double dm3 = Double.parseDouble(sm3);
+                double dl1 = Double.parseDouble(judgeUitl(sl1));
+                double dl2 = Double.parseDouble(judgeUitl(sl2));
+                double dl3 = Double.parseDouble(judgeUitl(sl3));
+                double dh1 = Double.parseDouble(judgeUitl(sh1));
+                double dv1 = Double.parseDouble(judgeUitl(sv1));
+                double dv2 = Double.parseDouble(judgeUitl(sv2));
+                double dv3 = Double.parseDouble(judgeUitl(sv3));
+                double dm1 = Double.parseDouble(judgeUitl(sm1));
+                double dm2 = Double.parseDouble(judgeUitl(sm2));
+                double dm3 = Double.parseDouble(judgeUitl(sm3));
 
-                double dl0 = Double.parseDouble(sl0);
-                double dh0 = Double.parseDouble(sh0);
+                double dl0 = Double.parseDouble(judgeUitl(sl0));
+                double dh0 = Double.parseDouble(judgeUitl(sh0));
 
                 double q,qt,q1,q2,q3,q0,r0,s0;
 
+
+                //梯型部分计算结果
+                q1 = mul(mul(dl1,dh1),mul(dv1,dm1));
+                q2 = mul(mul(dl2,dh1),mul(dv2,dm2));
+                q3 = mul(mul(dl3,dh1),mul(dv3,dm3));
+                qt =add(add(q1,q2),q3);
 
                 //u型部分计算结果
                 r0 = add(div(Math.pow(dl0,2),mul(8,dh0),3),div(dh0,2,3));
@@ -101,13 +113,6 @@ public class MeFragment extends Fragment {
                 if (sh1.isEmpty()){
                     result.setText(Double.toString(round(q0,3))+"m³/s");
                 } else {
-
-                    //梯型部分计算结果
-                    q1 = mul(mul(dl1,dh1),mul(dv1,dm1));
-                    q2 = mul(mul(dl2,dh1),mul(dv2,dm2));
-                    q3 = mul(mul(dl3,dh1),mul(dv3,dm3));
-                    qt =add(add(q1,q2),q3);
-
                     q = add(q0,qt);
                     result.setText(Double.toString(round(q,3))+"m³/s");
                 }

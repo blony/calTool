@@ -52,6 +52,12 @@ public class NewsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
+    //判断EditText是否为空值
+    public String judgeUitl(String string){
+        String result = "".equals(string)?"0.000":string;
+        return result;
+    }
+
     public void initView(){
         btn_cal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,16 +76,16 @@ public class NewsFragment extends Fragment {
                 String sm3 = m3.getText().toString().trim();
 
                 //转换成double类型
-                double dl1 = Double.parseDouble(sl1);
-                double dl2 = Double.parseDouble(sl2);
-                double dl3 = Double.parseDouble(sl3);
-                double dh = Double.parseDouble(sh);
-                double dv1 = Double.parseDouble(sv1);
-                double dv2 = Double.parseDouble(sv2);
-                double dv3 = Double.parseDouble(sv3);
-                double dm1 = Double.parseDouble(sm1);
-                double dm2 = Double.parseDouble(sm2);
-                double dm3 = Double.parseDouble(sm3);
+                double dl1 = Double.parseDouble(judgeUitl(sl1));
+                double dl2 = Double.parseDouble(judgeUitl(sl2));
+                double dl3 = Double.parseDouble(judgeUitl(sl3));
+                double dh = Double.parseDouble(judgeUitl(sh));
+                double dv1 = Double.parseDouble(judgeUitl(sv1));
+                double dv2 = Double.parseDouble(judgeUitl(sv2));
+                double dv3 = Double.parseDouble(judgeUitl(sv3));
+                double dm1 = Double.parseDouble(judgeUitl(sm1));
+                double dm2 = Double.parseDouble(judgeUitl(sm2));
+                double dm3 = Double.parseDouble(judgeUitl(sm3));
 
                 double q,q1,q2,q3;
                 q1 = mul(mul(dl1,dh),mul(dv1,dm1));
